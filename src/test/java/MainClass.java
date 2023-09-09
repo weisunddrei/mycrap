@@ -2,25 +2,23 @@ import org.junit.jupiter.api.Test;
 
 public class MainClass {
 
-    public int a = 14;
-    private int class_number = 20;
+    public int firstTest = 14;
+    private int classNumber = 20;
+    private String classString = "Hello, world";
 
-    private String class_string = "Hello, world";
 
     @Test
-
     public String getClassString(){
-        return class_string;
+        return classString;
     }
 
     @Test
-
     public int getLocalNumber(){
-        return a;
+        return firstTest;
     }
+
     @Test
     public int getClassNumber(){
-        return class_number;
-        }
-
+        return classNumber;
+    }
 }
