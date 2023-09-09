@@ -9,7 +9,7 @@ public class MainClass {
 
     @Test
     public String getClassString(){
-        return classString;
+        {return classString;}
     }
 
     @Test
@@ -22,3 +22,4 @@ public class MainClass {
         return classNumber;
     }
 }
+
