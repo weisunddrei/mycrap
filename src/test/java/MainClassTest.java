@@ -5,7 +5,7 @@ public class MainClassTest extends MainClass{
     
     @Test
     public void testGetLocalNumber(){
-        Assert.assertTrue("Variable A is not equal to 14", firstTest > 14 || firstTest < 14);
+        Assert.assertTrue("Variable firstTest is not equal to 14", firstTest > 14 || firstTest < 14);
     }
     
     @Test
