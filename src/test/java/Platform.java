@@ -36,12 +36,12 @@ public class Platform {
         capabilities.setCapability("unicodeKeyboard", "true");
         capabilities.setCapability("resetKeyboard", "true");
         capabilities.setCapability("platformName", "Android");
-        capabilities.setCapability("deviceName", "Pixel33");
+        capabilities.setCapability("deviceName", "api33");
         capabilities.setCapability("platformVersion", "13.0");
         capabilities.setCapability("automationName", "UiAutomator2");
         capabilities.setCapability("appPackage", "com.riesapp.debug");
         capabilities.setCapability("appActivity", "com.riesapp.features.root.RootActivity");
-        capabilities.setCapability("app", "C:\\Users\\rudol\\apks\\ries-ries-debug-master.apk");
+        capabilities.setCapability("app", "/home/user/IdeaProjects/ries-ries-debug.apk");
         return capabilities;
     }
 //    public class PageObject extends {
