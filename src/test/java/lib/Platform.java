@@ -38,4 +38,12 @@ public class Platform {
     public String getPlatformVar() {
         return System.getenv("PLATFORM");
     }
+    public static Platform getInstance()
+    {
+        if(instance==null){
+            instance = new Platform();
+        }
+        return instance;
+    }
 }
+
