@@ -1,4 +1,4 @@
-package ui;
+package lib.ui;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.PerformsTouchActions;
@@ -50,10 +50,6 @@ public class MainPageObject {
         element.sendKeys(value);
     }
 
-    public void swipeUpQuick() {
-        swipeUp(200);
-    }
-
     public void swipeUp(int timeOfSwipe) {
         if (driver instanceof AppiumDriver) {
             TouchAction action = new TouchAction((PerformsTouchActions) driver);
@@ -68,17 +64,37 @@ public class MainPageObject {
             System.out.println("Method swipeUp does nothing for platform" + Platform.getCurrent().getPartOfOsName());
         }
     }
+    public void swipeUpQuick() {
+        swipeUp(200);
+    }
     public void swipeUpToFindElement(String locator, String error_message, int max_swipes) {
         By by = this.getLocatorByString(locator);
-        int already_swiped = 0;
+        int alreadySwiped = 0;
         while (driver.findElements(by).isEmpty()) {
 
-            if (already_swiped > max_swipes) {
+            if (alreadySwiped > max_swipes) {
                 waitForElementPresent(locator, "Cannot find element by swiping up. \n" + error_message, 0);
                 return;
             }
             swipeUpQuick();
-            ++already_swiped;
+            ++alreadySwiped;
         }
+    }
+    public void waitForElementNotPresent(String locator, String errorMessage, long timeoutInSeconds) {
+        By by = getLocatorByString(locator);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));
+        wait.withMessage(errorMessage + "\n");
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
+    }
+    public void tapByCoordinates(int by_x, int by_y) {
+//        RemoteWebDriver remoteDriver = driver;
+        PerformsTouchActions performsTouchActions = (PerformsTouchActions) driver;
+        TouchAction touchAction = new TouchAction(performsTouchActions);
+        touchAction.tap(PointOption.point(by_x, by_y)).perform();
+    }
+    public WebElement waitForElementAndClear(String locator, String errorMessage, long timeoutInSeconds) {
+        WebElement element = waitForElementPresent(locator, errorMessage, timeoutInSeconds);
+        element.clear();
+        return element;
     }
 }
