@@ -28,12 +28,12 @@ public class FeedbackTest extends CoreTestCase {
         MainPageObject Main = new MainPageObject(driver);
 
 //        Авторизация
-        Main.waitForElementPresent(LOGIN_FIELD,"Cannot see login field",10);
-        Main.waitForElementAndClick(LOGIN_FIELD,"Cannot see and click login field",3);
-        Main.waitForElementAndSendKeys(LOGIN_FIELD_EDIT,"18858","Cannot see and send key login field",3);
-        Main.waitForElementAndClick(PASSWORD_FIELD,"Cannot see and click pass field",3);
-        Main.waitForElementAndSendKeys(PASSWORD_FIELD_EDIT,"Test20232","Cannot see and send key pass field",5);
-        Main.waitForElementAndClick(LOGIN_BUTTON,"Cannot click login button",5);
+//        Main.waitForElementPresent(LOGIN_FIELD,"Cannot see login field",10);
+//        Main.waitForElementAndClick(LOGIN_FIELD,"Cannot see and click login field",3);
+//        Main.waitForElementAndSendKeys(LOGIN_FIELD_EDIT,"18858","Cannot see and send key login field",3);
+//        Main.waitForElementAndClick(PASSWORD_FIELD,"Cannot see and click pass field",3);
+//        Main.waitForElementAndSendKeys(PASSWORD_FIELD_EDIT,"Test20232","Cannot see and send key pass field",5);
+//        Main.waitForElementAndClick(LOGIN_BUTTON,"Cannot click login button",5);
 
 //        Обратная связь
         Main.waitForElementAndClick(MENU_TAB,"Cannot see and click menu tab",5);

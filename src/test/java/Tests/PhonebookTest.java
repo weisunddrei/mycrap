@@ -3,12 +3,18 @@ package Tests;
 import lib.CoreTestCase;
 import lib.ui.MainPageObject;
 import org.junit.jupiter.api.Test;
+import lib.CoreTestCase;
+import lib.Platform;
+import lib.ui.RIES.AuthPageObject;
+import lib.ui.MainPageObject;
 
 import static Tests.AuthorizationTest.*;
 import static Tests.FeedbackTest.MENU_TAB;
 
 public class PhonebookTest extends CoreTestCase{
-    protected static String
+    public static final String
+            login = "130522",
+            password = "99679218Aa",
             PHONEBOOK_SECTION_BUTTON = "xpath://*[contains(@text,'Телефонный справочник')]",
             PHONEBOOK_FIELD = "id:com.riesapp.debug:id/textFieldEditText",
             PHONEBOOK_FIELD_EDIT = "id:com.riesapp.debug:id/topBarSearchEditText",
@@ -18,14 +24,16 @@ public class PhonebookTest extends CoreTestCase{
     @Test
     public void PhonebookTest() throws InterruptedException {
         MainPageObject Main = new MainPageObject(driver);
+        AuthorizationTest Auth = new AuthorizationTest();
+//        public void authLogin18858(login, password)
 
 //        Авторизация
-        Main.waitForElementPresent(LOGIN_FIELD,"Cannot see login field",10);
-        Main.waitForElementAndClick(LOGIN_FIELD,"Cannot see and click login field",3);
-        Main.waitForElementAndSendKeys(LOGIN_FIELD_EDIT,"18858","Cannot see and send key login field",3);
-        Main.waitForElementAndClick(PASSWORD_FIELD,"Cannot see and click pass field",3);
-        Main.waitForElementAndSendKeys(PASSWORD_FIELD_EDIT,"Test20232","Cannot see and send key pass field",5);
-        Main.waitForElementAndClick(LOGIN_BUTTON,"Cannot click login button",5);
+//        Main.waitForElementPresent(LOGIN_FIELD,"Cannot see login field",10);
+//        Main.waitForElementAndClick(LOGIN_FIELD,"Cannot see and click login field",3);
+//        Main.waitForElementAndSendKeys(LOGIN_FIELD_EDIT,"18858","Cannot see and send key login field",3);
+//        Main.waitForElementAndClick(PASSWORD_FIELD,"Cannot see and click pass field",3);
+//        Main.waitForElementAndSendKeys(PASSWORD_FIELD_EDIT,"Test20232","Cannot see and send key pass field",5);
+//        Main.waitForElementAndClick(LOGIN_BUTTON,"Cannot click login button",5);
 
 //        Телефонный справочник
         Main.waitForElementAndClick(MENU_TAB,"Cannot see and click menu tab",5);
