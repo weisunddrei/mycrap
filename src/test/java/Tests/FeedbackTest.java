@@ -1,6 +1,7 @@
 package Tests;
 
 import lib.CoreTestCase;
+import lib.ui.RIES.AuthPageObject;
 import org.junit.jupiter.api.Test;
 import lib.ui.MainPageObject;
 
@@ -21,21 +22,15 @@ public class FeedbackTest extends CoreTestCase {
             PERMISSION_ALLOW_BUTTON = "id:com.android.permissioncontroller:id/permission_allow_button",
             SELECT_PHOTO_TO_UPLOAD = "id:com.google.android.documentsui:id/icon_thumb",
             FEEDBACK_SEND_BUTTON = "id:com.riesapp.debug:id/button",
-            FEEDBACK_SENT_SNACK_BAR = "id:com.riesapp.debug:id/snackbar_text";
+            FEEDBACK_SENT_SNACK_BAR = "id:com.riesapp.debug:id/snackbarText";
 
     @Test
     public void feedbackTest(){
         MainPageObject Main = new MainPageObject(driver);
+        AuthPageObject Auth = new AuthPageObject(driver);
 
-//        Авторизация
-//        Main.waitForElementPresent(LOGIN_FIELD,"Cannot see login field",10);
-//        Main.waitForElementAndClick(LOGIN_FIELD,"Cannot see and click login field",3);
-//        Main.waitForElementAndSendKeys(LOGIN_FIELD_EDIT,"18858","Cannot see and send key login field",3);
-//        Main.waitForElementAndClick(PASSWORD_FIELD,"Cannot see and click pass field",3);
-//        Main.waitForElementAndSendKeys(PASSWORD_FIELD_EDIT,"Test20232","Cannot see and send key pass field",5);
-//        Main.waitForElementAndClick(LOGIN_BUTTON,"Cannot click login button",5);
+        Auth.authLogin18858(login, password);
 
-//        Обратная связь
         Main.waitForElementAndClick(MENU_TAB,"Cannot see and click menu tab",5);
 //        Main.swipeUpToFindElement(FEEDBACK_SECTION,"Cannot see feedback section",1); // для версии риес, в космосе мало разделов, свайп не нужен пока
         Main.waitForElementAndClick(FEEDBACK_SECTION_BUTTON,"Cannot see and click feedback section button",3);

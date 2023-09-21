@@ -66,7 +66,7 @@ public class MainPageObject {
         }
     }
     public void swipeUpQuick() {
-        swipeUp(200);
+        swipeUp(850);
     }
     public void swipeUpToFindElement(String locator, String error_message, int max_swipes) {
         By by = this.getLocatorByString(locator);
@@ -88,7 +88,6 @@ public class MainPageObject {
         wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
     }
     public void tapByCoordinates(int by_x, int by_y) {
-//        RemoteWebDriver remoteDriver = driver;
         PerformsTouchActions performsTouchActions = (PerformsTouchActions) driver;
         TouchAction touchAction = new TouchAction(performsTouchActions);
         touchAction.tap(PointOption.point(by_x, by_y)).perform();
