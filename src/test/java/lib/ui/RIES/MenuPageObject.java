@@ -7,7 +7,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import static lib.ui.RIES.AuthPageObject.LOADER;
 
 
-public class FeedbackPageObject extends MainPageObject {
+public class MenuPageObject extends MainPageObject {
     protected static String
             MENU_TAB = "xpath://*[contains(@text,'Меню')]",
             FEEDBACK_SECTION_BUTTON = "xpath://*[contains(@text,'Обратная связь')]",
@@ -22,9 +22,12 @@ public class FeedbackPageObject extends MainPageObject {
             FEEDBACK_SEND_BUTTON = "id:com.riesapp.debug:id/button",
             FEEDBACK_SENT_SNACK_BAR = "id:com.riesapp.debug:id/snackbarText";
 
-    public FeedbackPageObject(RemoteWebDriver driver) {
+    public MenuPageObject(RemoteWebDriver driver) {
         super(driver);
     }
+
+
+//    FEEDBACK
 
     @Step("Wait and click for menu tab")
     public void clickForMenuTab()
@@ -65,6 +68,7 @@ public class FeedbackPageObject extends MainPageObject {
     public void waitForLoaderToDisappear()
     {
         this.waitForElementNotPresent(LOADER, "Can see Loader", 10);
+        this.waitForElementPresent(MENU_TAB,"Cannot see and click menu tab",10);
     }
 
     @Step("See snack")

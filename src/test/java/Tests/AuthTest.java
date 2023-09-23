@@ -7,7 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 
-public class AuthorizationTest extends CoreTestCase {
+public class AuthTest extends CoreTestCase {
     public static final String
             login = "18858",
             password = "Test20232";

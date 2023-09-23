@@ -3,14 +3,14 @@ package Tests;
 import io.qameta.allure.*;
 import lib.CoreTestCase;
 import lib.ui.RIES.AuthPageObject;
-import lib.ui.RIES.FeedbackPageObject;
+import lib.ui.RIES.MenuPageObject;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static Tests.AuthorizationTest.*;
-
 public class FeedbackTest extends CoreTestCase {
     public static final String
+            login = "18858",
+            password = "Test20232",
             title = "Title",
             description = "Description";
 
@@ -20,9 +20,10 @@ public class FeedbackTest extends CoreTestCase {
     @Description("Filling out fields and sending feedback")
     @Step("Starting test ID 2 'testSendingFeedback'")
     @Severity(value = SeverityLevel.CRITICAL)
-    public void testSendingFeedback() throws InterruptedException {
+    public void testSendingFeedback() {
         AuthPageObject Auth = new AuthPageObject(driver);
-        FeedbackPageObject Feed = new FeedbackPageObject(driver);
+        MenuPageObject Feed = new MenuPageObject(driver);
+
         Auth.authLogin18858(login, password);
 
         Feed.clickForMenuTab();
@@ -31,7 +32,6 @@ public class FeedbackTest extends CoreTestCase {
         Feed.addAttachmentFeedback();
         Feed.clickButtonForSendingFeedback();
         Feed.waitForLoaderToDisappear();
-        Thread.sleep(2000);
         Feed.assertIfSnackBarIsThere();
     }
 }
