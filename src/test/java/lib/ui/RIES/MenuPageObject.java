@@ -76,4 +76,10 @@ public class MenuPageObject extends MainPageObject {
     {
         this.assertElementIsPresent(FEEDBACK_SENT_SNACK_BAR, " Cannot find snackbar succsess");
     }
+
+    @Step("See snack")
+    public void assertIfSendButtonIsVisible()
+    {
+        this.assertElementIsPresent(FEEDBACK_SEND_BUTTON, "Can see Button");
+    }
 }

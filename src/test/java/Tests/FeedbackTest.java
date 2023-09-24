@@ -34,4 +34,22 @@ public class FeedbackTest extends CoreTestCase {
         Feed.waitForLoaderToDisappear();
         Feed.assertIfSnackBarIsThere();
     }
+
+    @Test
+    @Features(value = {@Feature(value = "Feedback")})
+    @DisplayName("Check required fields")
+    @Description("Send verification without required fields")
+    @Step("Starting test ID 3 'testSendingFeedback'")
+    @Severity(value = SeverityLevel.CRITICAL)
+    public void testRequiredFeilds() {
+        AuthPageObject Auth = new AuthPageObject(driver);
+        MenuPageObject Feed = new MenuPageObject(driver);
+
+        Auth.authLogin18858(login, password);
+
+        Feed.clickForMenuTab();
+        Feed.clickForFeedbackSection();
+        Feed.clickButtonForSendingFeedback();
+        Feed.assertIfSendButtonIsVisible();
+    }
 }

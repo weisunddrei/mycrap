@@ -104,6 +104,13 @@ public class MainPageObject {
     }
     public void assertElementIsPresent(String locator, String errorMessage) {
         int amountOfElements = getAmountOfElements(locator);
+        if (amountOfElements == 0) {
+            String default_message = "An element '" + locator + "' is not there";
+            throw new AssertionError(default_message + " " + errorMessage);
+        }
+    }
+    public void assertElementNotPresent(String locator, String errorMessage) {
+        int amountOfElements = getAmountOfElements(locator);
         if (amountOfElements < 1) {
             String default_message = "An element '" + locator + "' is not there";
             throw new AssertionError(default_message + " " + errorMessage);
