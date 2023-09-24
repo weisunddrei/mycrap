@@ -1,7 +1,7 @@
 package lib.ui.RIES;
 
 import io.qameta.allure.Step;
-import lib.ui.MainPageObject;
+import lib.ui.RIES.MainPageObject;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import static lib.ui.RIES.AuthPageObject.LOADER;

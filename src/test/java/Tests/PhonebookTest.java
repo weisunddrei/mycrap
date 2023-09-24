@@ -1,7 +1,7 @@
 package Tests;
 
 import lib.CoreTestCase;
-import lib.ui.MainPageObject;
+//import lib.ui.MainPageObject;
 import org.junit.jupiter.api.Test;
 import lib.ui.RIES.AuthPageObject;
 
