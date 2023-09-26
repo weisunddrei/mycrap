@@ -22,17 +22,17 @@ public class FeedbackTest extends CoreTestCase {
     @Severity(value = SeverityLevel.CRITICAL)
     public void testSendingFeedback() {
         AuthPageObject Auth = new AuthPageObject(driver);
-        MenuPageObject Feed = new MenuPageObject(driver);
+        MenuPageObject Menu = new MenuPageObject(driver);
 
         Auth.authLogin18858(login, password);
 
-        Feed.clickForMenuTab();
-        Feed.clickForFeedbackSection();
-        Feed.enterFeedbackData(title, description);
-        Feed.addAttachmentFeedback();
-        Feed.clickButtonForSendingFeedback();
-        Feed.waitForLoaderToDisappear();
-        Feed.assertIfSnackBarIsThere();
+        Menu.clickForMenuTab();
+        Menu.clickForFeedbackSection();
+        Menu.enterFeedbackData(title, description);
+        Menu.addAttachmentFeedback();
+        Menu.clickButtonForSendingFeedback();
+        Menu.waitForLoaderToDisappear();
+        Menu.assertIfSnackBarIsThere();
     }
 
     @Test
@@ -43,13 +43,13 @@ public class FeedbackTest extends CoreTestCase {
     @Severity(value = SeverityLevel.CRITICAL)
     public void testRequiredFeilds() {
         AuthPageObject Auth = new AuthPageObject(driver);
-        MenuPageObject Feed = new MenuPageObject(driver);
+        MenuPageObject Menu = new MenuPageObject(driver);
 
         Auth.authLogin18858(login, password);
 
-        Feed.clickForMenuTab();
-        Feed.clickForFeedbackSection();
-        Feed.clickButtonForSendingFeedback();
-        Feed.assertIfSendButtonIsVisible();
+        Menu.clickForMenuTab();
+        Menu.clickForFeedbackSection();
+        Menu.clickButtonForSendingFeedback();
+        Menu.assertIfSendButtonIsVisible();
     }
 }

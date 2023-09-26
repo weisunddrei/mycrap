@@ -24,7 +24,7 @@ public class MenuPageObject extends MainPageObject {
             FEEDBACK_SEND_BUTTON = "id:com.riesapp.debug:id/button",
             FEEDBACK_SENT_SNACK_BAR = "id:com.riesapp.debug:id/snackbarText",
             MORTGAGE_SECTION_BUTTON = "xpath://*[contains(@text,'Калькулятор ипотеки')]",
-            MORTGAGE_TYPE_OBJECT_TPL = "xpath://*[contains(@text,'{objectType}')]",
+            MORTGAGE_TYPE_OBJECT_TPL = "xpath://*[contains(@text,'{mortgageObjectType}')]",
             MORTGAGE_TYPE_OBJECT_FILTER = "xpath://*[contains(@text,'Тип недвижимости')]",
             MORTGAGE_SHOW_BUTTON = "id:com.riesapp.debug:id/show_programs_button",
             FILTER_BUTTON = "xpath://*[contains(@text,'Фильтр')]";
@@ -49,24 +49,22 @@ public class MenuPageObject extends MainPageObject {
     }
 
     @Step("Clicking for mortgage object filter")
-    public void clickMortgageObjectType(String mortgageObjectType) {
-        String mortgageObjectTypeXpath = getXpathByMortgageObjectType(mortgageObjectType);
-
+    public void clickMortgageObjectType() {
         this.waitForElementPresent(MORTGAGE_TYPE_OBJECT_FILTER, "Cannot see type object filter", 10);
         this.waitForElementAndClick(MORTGAGE_TYPE_OBJECT_FILTER, "Cannot see and click type object filter", 10);
     }
 
     @Step("Clicking for mortgage object changes type")
-    public void clickChangeObjectType(String mortgageChangeObjectType) {
-        String mortgageObjectTypeXpath = getXpathByMortgageObjectType(mortgageChangeObjectType);
+    public void clickChangeObjectType(String mortgageObjectType) {
+        String mortgageObjectTypeXpath = getXpathByMortgageObjectType(mortgageObjectType);
 
         this.waitForElementPresent(mortgageObjectTypeXpath, "Cannot see object changes type", 10);
         this.waitForElementAndClick(mortgageObjectTypeXpath, "Cannot see object Changes Type", 10);
     }
 
     @Step("Assert for mortgage object changes type")
-    public void assertIfTypeObjectChange(String mortgageChangeObjectType){
-        String mortgageObjectTypeXpath = getXpathByMortgageObjectType(mortgageChangeObjectType);
+    public void assertIfTypeObjectChange(String mortgageObjectType){
+        String mortgageObjectTypeXpath = getXpathByMortgageObjectType(mortgageObjectType);
 
         this.waitForElementPresent(mortgageObjectTypeXpath, "Cannot see object changes type", 10);
         this.assertElementIsPresent(mortgageObjectTypeXpath, "Cannot see object Changes Type");
@@ -84,7 +82,7 @@ public class MenuPageObject extends MainPageObject {
     }
 
     private static String getXpathByMortgageObjectType(String mortgageObjectType) {
-        return MORTGAGE_TYPE_OBJECT_TPL.replace("{objectType}", mortgageObjectType);
+        return MORTGAGE_TYPE_OBJECT_TPL.replace("{mortgageObjectType}", mortgageObjectType);
     }
 
 
