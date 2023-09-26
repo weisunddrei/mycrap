@@ -1,5 +1,6 @@
 package lib.ui.RIES;
 
+import Tests.MortgageCalculatorTest;
 import io.qameta.allure.Step;
 import lib.ui.MainPageObject;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -10,6 +11,7 @@ import static lib.ui.RIES.AuthPageObject.LOADER;
 public class MenuPageObject extends MainPageObject {
     protected static String
             MENU_TAB = "xpath://*[contains(@text,'Меню')]",
+            LOADER = "id:com.riesapp.debug:id/loader",
             FEEDBACK_SECTION_BUTTON = "xpath://*[contains(@text,'Обратная связь')]",
             FEEDBACK_TITLE_FIELD = "xpath://*[contains(@text,'Заголовок')]",
             FEEDBACK_DESCRIPTION_FIELD = "xpath://*[contains(@text,'Описание *')]",
@@ -23,77 +25,71 @@ public class MenuPageObject extends MainPageObject {
             FEEDBACK_SENT_SNACK_BAR = "id:com.riesapp.debug:id/snackbarText",
             MORTGAGE_SECTION_BUTTON = "xpath://*[contains(@text,'Калькулятор ипотеки')]",
             MORTGAGE_TYPE_OBJECT_TPL = "xpath://*[contains(@text,'{objectType}')]",
-            MORTGAGE_TYPE_OBJECT = "xpath://*[contains(@text,'Вторичная недвижимость')]";
+            MORTGAGE_TYPE_OBJECT_FILTER = "xpath://*[contains(@text,'Тип недвижимости')]",
+            MORTGAGE_SHOW_BUTTON = "id:com.riesapp.debug:id/show_programs_button",
+            FILTER_BUTTON = "xpath://*[contains(@text,'Фильтр')]";
 
 
     public MenuPageObject(RemoteWebDriver driver) {
         super(driver);
     }
-
-    @Step("Clicking for feedback section")
-    public void clickForMortgageSection()
-    {
-        this.waitForElementAndClick(MORTGAGE_SECTION_BUTTON,"Cannot see and click mort section",10);
-    }
-
-    @Step("Clicking for feedback section")
-    public void clickNewHousesObject(String mortgageObjectTypeNew) {
-        String mortgageObjectTypeXpath = getXpathByMortgageObjectType(mortgageObjectTypeNew);
-
-        this.waitForElementPresent(MORTGAGE_TYPE_OBJECT, "Err", 10);
-        this.waitForElementAndClick(MORTGAGE_TYPE_OBJECT, "Err", 10);
-    }
-
-    @Step("Clicking for feedback section")
-    public void clickZagorodObject(String mortgageObjectTypeZagorod) {
-        String mortgageObjectTypeXpath = getXpathByMortgageObjectType(mortgageObjectTypeZagorod);
-
-        this.waitForElementPresent(mortgageObjectTypeXpath, "Err", 10);
-        this.waitForElementAndClick(mortgageObjectTypeXpath, "Err", 10);
-    }
-
-    @Step("Clicking for feedback section")
-    public void assertIfTypeObjectChange(String mortgageObjectTypeZagorod){
-        String mortgageObjectTypeXpath = getXpathByMortgageObjectType(mortgageObjectTypeZagorod);
-
-        this.waitForElementPresent(mortgageObjectTypeXpath, "Err", 10);
-        this.assertElementIsPresent(mortgageObjectTypeXpath, "23");
-
-    }
-
-
-
-
-
-//        Mort.clickObjectTypeFilter();
-//        Mort.clickNewHouses();
-//        Mort.assertIfTypeChange();
-
-    private static String getXpathByMortgageObjectType(String mortgageObjectType) {
-        return MORTGAGE_TYPE_OBJECT_TPL.replace("{objectType}", mortgageObjectType);
-    }
-
-//    @Step("Entering clients name, tickets title")
-//    public void changeMortgageTypeObject(String mortgageObjectType, String estateType) throws InterruptedException {
-//        String mortgageObjectTypeXpath = getXpathByMortgageObjectType(mortgageObjectType);
-//
-//        this.waitForElementPresent(MORTGAGE_TYPE_OBJECT, "Cannot see deal type button",3);
-//        this.waitForElementAndClick(MORTGAGE_TYPE_OBJECT,"Cannot find and click ticket type button",3);
-//        Thread.sleep(500);
-//        this.waitForElementPresent(dealsTypeXpath, "Cannot find deal type " + dealsType, 3);
-//        this.waitForElementAndClick(dealsTypeXpath, "Cannot find deal type " + dealsType, 3);
-//        this.waitForElementAndClick(TYPE_OF_ESTATE_FILTER,"Cannot find and open type of state bottom-sheet",3);
-//        Thread.sleep(500);
-//    }
-
-
-//    FEEDBACK
-
     @Step("Wait and click for menu tab")
     public void clickForMenuTab()
     {
         this.waitForElementAndClick(MENU_TAB,"Cannot see and click menu tab",10);
     }
+
+
+    //   MortgageCalculator
+
+
+    @Step("Clicking for mortgage section")
+    public void clickForMortgageSection() {
+        this.waitForElementAndClick(MORTGAGE_SECTION_BUTTON,"Cannot see and click mortgage section",10);
+    }
+
+    @Step("Clicking for mortgage object filter")
+    public void clickMortgageObjectType(String mortgageObjectType) {
+        String mortgageObjectTypeXpath = getXpathByMortgageObjectType(mortgageObjectType);
+
+        this.waitForElementPresent(MORTGAGE_TYPE_OBJECT_FILTER, "Cannot see type object filter", 10);
+        this.waitForElementAndClick(MORTGAGE_TYPE_OBJECT_FILTER, "Cannot see and click type object filter", 10);
+    }
+
+    @Step("Clicking for mortgage object changes type")
+    public void clickChangeObjectType(String mortgageChangeObjectType) {
+        String mortgageObjectTypeXpath = getXpathByMortgageObjectType(mortgageChangeObjectType);
+
+        this.waitForElementPresent(mortgageObjectTypeXpath, "Cannot see object changes type", 10);
+        this.waitForElementAndClick(mortgageObjectTypeXpath, "Cannot see object Changes Type", 10);
+    }
+
+    @Step("Assert for mortgage object changes type")
+    public void assertIfTypeObjectChange(String mortgageChangeObjectType){
+        String mortgageObjectTypeXpath = getXpathByMortgageObjectType(mortgageChangeObjectType);
+
+        this.waitForElementPresent(mortgageObjectTypeXpath, "Cannot see object changes type", 10);
+        this.assertElementIsPresent(mortgageObjectTypeXpath, "Cannot see object Changes Type");
+    }
+
+    @Step("Clicking for mortgage object show button")
+    public void clickMortgageShowButton() {
+        this.waitForElementAndClick(MORTGAGE_SHOW_BUTTON,"Cannot see and click mortgage show button",10);
+    }
+
+    @Step("Assert for show loader and filter button")
+    public void assertShowFilterButton() {
+        this.waitForElementNotPresent(LOADER,"Can see Loader",10);
+        this.assertElementIsPresent(FILTER_BUTTON,"Cannot see Filter Button");
+    }
+
+    private static String getXpathByMortgageObjectType(String mortgageObjectType) {
+        return MORTGAGE_TYPE_OBJECT_TPL.replace("{objectType}", mortgageObjectType);
+    }
+
+
+//    Feedback
+
 
     @Step("Clicking for feedback section")
     public void clickForFeedbackSection()

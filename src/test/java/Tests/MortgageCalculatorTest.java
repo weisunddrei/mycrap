@@ -12,23 +12,74 @@ public class MortgageCalculatorTest extends CoreTestCase {
             password = "Test20232";
 
     @Test
-    public void changeMortgageTypeObject(){
+    public void changeMortgageNewHouseObject() {
         AuthPageObject Auth = new AuthPageObject(driver);
         MenuPageObject Mort = new MenuPageObject(driver);
 
         Auth.authLogin18858(login, password);
 
-        String mortgageObjectTypeNew = "Новостройки";
-        String mortgageObjectTypeZagorod = "Дачи";
+        String mortgageChangeObjectType = "Тип недвижимости";
 
         Mort.clickForMenuTab();
         Mort.clickForMortgageSection();
-        Mort.clickNewHousesObject("Новостройки");
-        Mort.clickZagorodObject("Дачи");
+        Mort.clickMortgageObjectType("Тип недвижимости");
+        Mort.clickChangeObjectType("Новостройки");
+        Mort.assertIfTypeObjectChange("Новостройки");
+        Mort.clickMortgageShowButton();
+        Mort.assertShowFilterButton();
+    }
+
+    @Test
+    public void changeMortgageCountryHouseObject() {
+        AuthPageObject Auth = new AuthPageObject(driver);
+        MenuPageObject Mort = new MenuPageObject(driver);
+
+        Auth.authLogin18858(login, password);
+
+        String mortgageChangeObjectType = "Тип недвижимости";
+
+        Mort.clickForMenuTab();
+        Mort.clickForMortgageSection();
+        Mort.clickMortgageObjectType("Тип недвижимости");
+        Mort.clickChangeObjectType("Дачи");
         Mort.assertIfTypeObjectChange("Дачи");
+        Mort.clickMortgageShowButton();
+        Mort.assertShowFilterButton();
+    }
 
+    @Test
+    public void changeMortgageLandObject() {
+        AuthPageObject Auth = new AuthPageObject(driver);
+        MenuPageObject Mort = new MenuPageObject(driver);
 
+        Auth.authLogin18858(login, password);
 
+        String mortgageChangeObjectType = "Тип недвижимости";
 
+        Mort.clickForMenuTab();
+        Mort.clickForMortgageSection();
+        Mort.clickMortgageObjectType("Тип недвижимости");
+        Mort.clickChangeObjectType("Земельные участки");
+        Mort.assertIfTypeObjectChange("Земельные участки");
+        Mort.clickMortgageShowButton();
+        Mort.assertShowFilterButton();
+    }
+
+    @Test
+    public void changeMortgageCottageObject() {
+        AuthPageObject Auth = new AuthPageObject(driver);
+        MenuPageObject Mort = new MenuPageObject(driver);
+
+        Auth.authLogin18858(login, password);
+
+        String mortgageChangeObjectType = "Тип недвижимости";
+
+        Mort.clickForMenuTab();
+        Mort.clickForMortgageSection();
+        Mort.clickMortgageObjectType("Тип недвижимости");
+        Mort.clickChangeObjectType("Частные дома");
+        Mort.assertIfTypeObjectChange("Частные дома");
+        Mort.clickMortgageShowButton();
+        Mort.assertShowFilterButton();
     }
 }
