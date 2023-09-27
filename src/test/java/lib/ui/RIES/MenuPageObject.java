@@ -1,11 +1,7 @@
 package lib.ui.RIES;
 
-import Tests.MortgageCalculatorTest;
 import io.qameta.allure.Step;
-import lib.ui.MainPageObject;
 import org.openqa.selenium.remote.RemoteWebDriver;
-
-import static lib.ui.RIES.AuthPageObject.LOADER;
 
 
 public class MenuPageObject extends MainPageObject {

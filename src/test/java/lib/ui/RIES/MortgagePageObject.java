@@ -1,6 +1,5 @@
 package lib.ui.RIES;
 
-import lib.ui.MainPageObject;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class MortgagePageObject extends MainPageObject {

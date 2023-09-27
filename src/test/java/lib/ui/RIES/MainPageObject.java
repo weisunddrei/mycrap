@@ -1,4 +1,4 @@
-package lib.ui;
+package lib.ui.RIES;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.PerformsTouchActions;

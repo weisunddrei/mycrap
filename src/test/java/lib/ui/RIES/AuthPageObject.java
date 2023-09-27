@@ -1,7 +1,6 @@
 package lib.ui.RIES;
 
 import io.qameta.allure.Step;
-import lib.ui.MainPageObject;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class AuthPageObject extends MainPageObject {

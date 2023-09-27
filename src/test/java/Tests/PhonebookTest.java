@@ -1,9 +1,6 @@
 package Tests;
 
 import lib.CoreTestCase;
-import lib.ui.MainPageObject;
-import org.junit.jupiter.api.Test;
-import lib.ui.RIES.AuthPageObject;
 
 public class PhonebookTest extends CoreTestCase{
 //    public static final String
