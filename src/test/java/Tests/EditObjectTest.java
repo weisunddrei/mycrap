@@ -13,8 +13,6 @@ public class EditObjectTest extends CoreTestCase {
             targetDate = DatePickerFormatter.formatTomorrowDate();
 
 
-
-
     @Test
     public void editObjectStatus() {
         AuthPageObject Auth = new AuthPageObject(driver);
@@ -39,30 +37,4 @@ public class EditObjectTest extends CoreTestCase {
             Object.assertElementAfterSave();
         }
     }
-
-
-//    @Test
-//    public void editObjectStatus(){
-//        AuthPageObject Auth = new AuthPageObject(driver);
-//        ObjectPageObject Object = new ObjectPageObject(driver);
-//        String objectStatus = "Активный";
-//
-//
-//        Auth.authLogin18858(login, password);
-//        Object.enterCode();
-//        Object.clickSearchButton();
-//        Object.clickObjectCard();
-//        Object.getEditCharacteristicObject();
-//        Object.waitForElementAndGetAttribute(objectStatus,"Активный","asd",15);
-//
-//        if ("Активный".equals(objectStatus)){
-//            Object.clickChangeObjectStatus("Приостановлен");
-//
-//        }
-//        Object.clickChangeObjectStatus("Приостановлен");
-//        Object.clickChangeObjectStatusReason("Отложил продажу");
-//        Object.editDatePicker(targetDate);
-//        Object.clickSaveButton();
-//        Object.assertElementAfterSave();
-//    }
 }
