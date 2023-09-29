@@ -12,10 +12,14 @@ public class EditObjectTest extends CoreTestCase {
             password = "Test20232",
             targetDate = DatePickerFormatter.formatTomorrowDate();
 
+
+
+
     @Test
-    public void editObjectStatus(){
+    public void editObjectStatus() {
         AuthPageObject Auth = new AuthPageObject(driver);
         ObjectPageObject Object = new ObjectPageObject(driver);
+        String objectStatus = "Приостановлен";
 
 
         Auth.authLogin18858(login, password);
@@ -23,10 +27,42 @@ public class EditObjectTest extends CoreTestCase {
         Object.clickSearchButton();
         Object.clickObjectCard();
         Object.getEditCharacteristicObject();
-        Object.clickChangeObjectStatus("Приостановлен");
-        Object.clickChangeObjectStatusReason("Отложил продажу");
-        Object.editDatePicker(targetDate);
-        Object.clickSaveButton();
-        Object.assertElementAfterSave();
+        if ("Активный".equals(objectStatus)) {
+            Object.clickChangeObjectStatus("Приостановлен");
+            Object.clickChangeObjectStatusReason("Отложил продажу");
+            Object.editDatePicker(targetDate);
+            Object.clickSaveButton();
+            Object.assertElementAfterSave();
+        } else if ("Приостановлен".equals(objectStatus)) {
+            Object.clickChangeObjectStatus("Предлистинг");
+            Object.clickSaveButton();
+            Object.assertElementAfterSave();
+        }
     }
+
+
+//    @Test
+//    public void editObjectStatus(){
+//        AuthPageObject Auth = new AuthPageObject(driver);
+//        ObjectPageObject Object = new ObjectPageObject(driver);
+//        String objectStatus = "Активный";
+//
+//
+//        Auth.authLogin18858(login, password);
+//        Object.enterCode();
+//        Object.clickSearchButton();
+//        Object.clickObjectCard();
+//        Object.getEditCharacteristicObject();
+//        Object.waitForElementAndGetAttribute(objectStatus,"Активный","asd",15);
+//
+//        if ("Активный".equals(objectStatus)){
+//            Object.clickChangeObjectStatus("Приостановлен");
+//
+//        }
+//        Object.clickChangeObjectStatus("Приостановлен");
+//        Object.clickChangeObjectStatusReason("Отложил продажу");
+//        Object.editDatePicker(targetDate);
+//        Object.clickSaveButton();
+//        Object.assertElementAfterSave();
+//    }
 }

@@ -1,6 +1,7 @@
 package lib.ui.RIES;
 
 import io.qameta.allure.Step;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import java.util.ArrayList;
 
@@ -132,4 +133,16 @@ public class ObjectPageObject extends MainPageObject {
 //        || "Номер".equals(estateType)
 //        || "Апартаменты".equals(estateType)))
 
+//    @Step
+//    public String waitForElementAndGetAttribute(String locator, String attribute, String errorMessage, long timeoutInSeconds) {
+//        String article_title = waitForElementAndGetAttribute(
+//                "xpath://*[contains(@text,'Статус')]",
+//                "Активный",
+//                "Cannot get current object status",
+//                15);
+//        WebElement element = waitForElementPresent(locator, errorMessage, timeoutInSeconds);
+//        return element.getAttribute(attribute);
+//    }
+
+//if ("Активный".equals(article_title)){}
 }
