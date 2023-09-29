@@ -10,6 +10,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -114,6 +115,21 @@ public class MainPageObject {
         if (amountOfElements < 1) {
             String default_message = "An element '" + locator + "' is not there";
             throw new AssertionError(default_message + " " + errorMessage);
+        }
+    }
+
+    public void getElementsWithDifferentLocators(List<String> locators) {
+        List<WebElement> elements = new ArrayList<>();
+
+        for (String locator : locators) {
+            By by = getLocatorByString(locator);
+            List<WebElement> foundElements = driver.findElements(by);
+
+            if (foundElements.isEmpty()) {
+                throw new NoSuchElementException("Element not found for locator: " + locator);
+            }
+
+            elements.addAll(foundElements);
         }
     }
 }
