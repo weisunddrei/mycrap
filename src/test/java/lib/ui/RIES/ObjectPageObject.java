@@ -8,9 +8,6 @@ import java.util.ArrayList;
 
 
 public class ObjectPageObject extends MainPageObject {
-    public static final String
-            login = "18858",
-            password = "Test20232";
     protected static String
             OBJECT_STATUS_CHANGE_TPL = "xpath://*[contains(@text,'{objectStatus}')]",
             CODE_OBJECTS = "xpath://*[contains(@text,'Коды объектов')]",
@@ -23,7 +20,7 @@ public class ObjectPageObject extends MainPageObject {
             OBJECT_STATUS_FILTER = "xpath://*[contains(@text,'Статус')]",
             OBJECT_CONFIRM_BUTTON = "xpath://*[contains(@text,'Понятно')]",
             OBJECT_STATUS_CHANGE = "xpath://*[contains(@text,'Приостановлен')]",
-            OBJECT_STATUS_CHANGE_REASON = "xpath://*[contains(@text,'Причина')]",
+            OBJECT_STATUS_CHANGE_REASON_SUSPENDED = "xpath://*[contains(@text,'Причина')]",
             OBJECT_STATUS_CHANGE_REASON_TPL = "xpath://*[contains(@text,'{objectStatusReason}')]",
             OBJECT_CHARACTERISTIC_DATE_PICKER = "id:com.riesapp.debug:id/textFieldRightItemContainer",
             DATE_PICKER_EDIT_FORMAT_INPUT = "id:com.riesapp.debug:id/mtrl_picker_header_toggle",
@@ -86,7 +83,7 @@ public class ObjectPageObject extends MainPageObject {
 
 
 
-    @Step("Clicking for mortgage object changes type")
+    @Step("Change object status")
     public void clickChangeObjectStatus(String objectStatus) {
         String objectStatusXpath = getXpathByObjectStatus(objectStatus);
 
@@ -95,14 +92,14 @@ public class ObjectPageObject extends MainPageObject {
         this.waitForElementAndClick(objectStatusXpath, "Cannot see object Changes Type", 10);
     }
 
-    @Step("Clicking for mortgage object changes type")
+    @Step("Change reason suspended")
     public void clickChangeObjectStatusReason(String objectStatusReason) {
         String objectStatusReasonXpath = getXpathByObjectStatusReason(objectStatusReason);
 
-        this.waitForElementPresent(OBJECT_STATUS_CHANGE_REASON, "Cannot see and click object card", 10);
-        this.waitForElementAndClick(OBJECT_STATUS_CHANGE_REASON, "Cannot see and click object card", 10);
-        this.waitForElementPresent(objectStatusReasonXpath, "Cannot see object changes type", 10);
-        this.waitForElementAndClick(objectStatusReasonXpath, "Cannot see object Changes Type", 10);
+        this.waitForElementPresent(OBJECT_STATUS_CHANGE_REASON_SUSPENDED, "Cannot see chapter change reason suspended", 10);
+        this.waitForElementAndClick(OBJECT_STATUS_CHANGE_REASON_SUSPENDED, "Cannot see and click chapter change reason suspended", 10);
+        this.waitForElementPresent(objectStatusReasonXpath, "Cannot see reason suspended", 10);
+        this.waitForElementAndClick(objectStatusReasonXpath, "Cannot see and click reason suspended", 10);
     }
 
 
