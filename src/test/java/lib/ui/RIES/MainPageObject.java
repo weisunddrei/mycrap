@@ -132,4 +132,9 @@ public class MainPageObject {
             elements.addAll(foundElements);
         }
     }
+
+    public void waitForElementAndGetAttribute(String locator, String attribute, String errorMessage, long timeoutInSeconds) {
+        WebElement element = waitForElementPresent(locator, errorMessage, timeoutInSeconds);
+        element.getAttribute(attribute);
+    }
 }
