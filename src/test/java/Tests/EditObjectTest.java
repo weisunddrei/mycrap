@@ -4,15 +4,20 @@ import lib.CoreTestCase;
 import lib.Halper.DatePickerFormatter;
 import lib.ui.RIES.AuthPageObject;
 import lib.ui.RIES.ObjectPageObject;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
+
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class EditObjectTest extends CoreTestCase {
     public static final String
             login = "18858",
             password = "Test20232",
             targetDate = DatePickerFormatter.formatTomorrowDate();
 
-
+    @Order(1)
     @Test
     public void changingStatusOfActiveObject() {
         AuthPageObject Auth = new AuthPageObject(driver);
@@ -35,7 +40,7 @@ public class EditObjectTest extends CoreTestCase {
         Object.clickSaveButton();
         Object.assertElementAfterSave();
     }
-
+    @Order(2)
     @Test
     public void changingStatusOfSuspendedObject() {
         AuthPageObject Auth = new AuthPageObject(driver);
@@ -58,7 +63,7 @@ public class EditObjectTest extends CoreTestCase {
         Object.clickSaveButton();
         Object.assertElementAfterSave();
     }
-
+    @Order(3)
     @Test
     public void changingStatusOfPrelistingObject() {
         AuthPageObject Auth = new AuthPageObject(driver);
