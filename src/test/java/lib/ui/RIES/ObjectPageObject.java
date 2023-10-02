@@ -70,6 +70,7 @@ public class ObjectPageObject extends MainPageObject {
     @Step
     public void clickSaveButton() {
         this.waitForElementAndClick(SAVE_BUTTON, "Cannot see and click save button", 10);
+        this.waitForElementNotPresent(LOADER, "Can see Loader", 10);
         this.waitForElementPresent(OBJECT_CHARACTERISTIC_BUTTON, "Cannot see characteristic button", 10);
     }
 

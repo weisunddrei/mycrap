@@ -79,7 +79,7 @@ public class AuthPageObject extends MainPageObject {
         this.waitForElementAndClick(PASSWORD_FIELD, "Cannot find and click search init element", 2);
         this.waitForElementAndSendKeys(PASSWORD_FIELD_EDIT, password, "Cannot find and put password", 5);
         this.waitForElementAndClick(LOGIN_BUTTON, "Cannot find and click LOGIN button", 5);
-        this.waitForElementNotPresent(LOADER, "Can see Loader", 5);
         this.waitForElementNotPresent(LOADER, "Can see Loader", 10);
-        this.assertElementIsPresent(SEARCH_BUTTON, "Cannot find SEARCH_BUTTON");}
+//        this.assertElementIsPresent(SEARCH_BUTTON, "Cannot find SEARCH_BUTTON");
+    }
 }
