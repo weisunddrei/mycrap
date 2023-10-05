@@ -24,20 +24,13 @@ public class CreateTicketTest extends CoreTestCase {
     public void testCreateTicketSell() {
         AuthPageObject Auth = new AuthPageObject(driver);
         TicketPageObject Ticket = new TicketPageObject(driver);
-        String ticketTypeOperation = "Продать";
-
 
         Auth.authLogin18858(login, password);
 
         Ticket.clickTicketTab();
         Ticket.clickCreateTicketButton();
         Ticket.enterTicketData();
-        if ("Продать".equals(ticketTypeOperation)) {
-            Ticket.changeTicketTypeObjectXpath("Номер");
-        } else {
-            Ticket.changeTicketTypeOperationXpath("Купить");
-            Ticket.changeTicketClassObjectXpath("Гаражи");
-        }
+        Ticket.changeTicketTypeOperationXpath("Продать", "Номер", "Гараж");
         Ticket.clickSaveTicketButton();
         Ticket.assertCreateTicket();
     }
@@ -50,21 +43,14 @@ public class CreateTicketTest extends CoreTestCase {
         public void testCreateTicketBuy() {
             AuthPageObject Auth = new AuthPageObject(driver);
             TicketPageObject Ticket = new TicketPageObject(driver);
-            String ticketTypeOperation = "Купить";
-
 
             Auth.authLogin18858(login, password);
 
             Ticket.clickTicketTab();
             Ticket.clickCreateTicketButton();
             Ticket.enterTicketData();
-            if ("Продать".equals(ticketTypeOperation)) {
-                Ticket.changeTicketTypeObjectXpath("Номер");
-            } else {
-                Ticket.changeTicketTypeOperationXpath("Купить");
-                Ticket.changeTicketClassObjectXpath("Гаражи");
-            }
+            Ticket.changeTicketTypeOperationXpath("Купить", "Номер", "Гараж");
             Ticket.clickSaveTicketButton();
             Ticket.assertCreateTicket();
-    }
+        }
 }

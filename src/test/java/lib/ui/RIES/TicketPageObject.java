@@ -17,15 +17,15 @@ public class TicketPageObject extends MainPageObject {
             TICKET_TYPE_OBJECT = "xpath://*[contains(@text,'Тип недвижимости')]",
             TICKET_CLASS_OBJECT = "xpath://*[contains(@text,'Класс недвижимости')]",
             TICKET_CLASS_OBJECT_TPL = "xpath://*[contains(@text,'{ticketClassObject}')]",
-            APPLICATION_SOURCE = "xpath://*[contains(@text,'Откуда узнали')]";
+            TICKET_SOURCE_FILTER = "xpath://*[contains(@text,'Откуда узнали')]";
 
 
-    @Step("Click on ticket tab")
+    @Step("Clicking on ticket tab")
     public void clickTicketTab(){
         this.waitForElementAndClick(TICKET_TAB,"Cannot see and click ticket tab",10);
     }
 
-    @Step("Click on create ticket button")
+    @Step("Clicking on create ticket button")
     public void clickCreateTicketButton(){
         this.waitForElementAndClick(CREATE_TICKET_BUTTON,"Cannot see and click create ticket button",10);
     }
@@ -35,26 +35,38 @@ public class TicketPageObject extends MainPageObject {
         this.waitForElementAndClick(TICKET_PHONE_FIELD,"Cannot see and click create ticket button",10);
         this.waitForElementAndSendKeys(TICKET_PHONE_FIELD_EDIT,"89827735883","Cannot see and send key create ticket button",10);
         this.waitForElementAndClick(TICKET_CREATE_SAVE_BUTTON,"Cannot see and click save button",10);
-        this.waitForElementPresent(APPLICATION_SOURCE, "Cannot see application source", 10);
+        this.waitForElementPresent(TICKET_SOURCE_FILTER, "Cannot see application source", 10);
     }
 
-    @Step("Click on save ticket button")
+    @Step("Clicking on save ticket button")
     public void clickSaveTicketButton() {
         this.waitForElementAndClick(TICKET_CREATE_SAVE_BUTTON,"Cannot see and click create save button",10);
     }
 
     @Step("Assert correct create ticket")
     public void assertCreateTicket () {
-        this.waitForElementPresent(APPLICATION_SOURCE, "Cannot see Application Source", 10);
+        this.waitForElementPresent(TICKET_SOURCE_FILTER, "Cannot see Application Source", 10);
     }
 
     @Step("Changing the operation type")
-    public void changeTicketTypeOperationXpath(String ticketTypeOperation) {
+    public void changeTicketTypeOperationXpath(String ticketTypeOperation, String ticketTypeObject, String ticketClassObject) {
         String ticketTypeOperationXpath = getXpathByTicketType(ticketTypeOperation);
+        String ticketTypeObjectXpath = getXpathByTicketTypeObject(ticketTypeObject);
+        String ticketClassObjectXpath = getXpathByTicketClassObject(ticketClassObject);
 
-        this.waitForElementAndClick(TICKET_TYPE_OPERATION, "Cannot see and click type operation", 10);
+        this.waitForElementPresent(TICKET_TYPE_OPERATION, "Cannot see and click type operation", 10);
+        if ("Продать".equals(ticketTypeOperation)) {
+            this.waitForElementAndClick(TICKET_TYPE_OBJECT, "Cannot see and click type object", 10);
+            this.waitForElementPresent(ticketTypeObjectXpath, "Cannot see needed option", 10);
+            this.waitForElementAndClick(ticketTypeObjectXpath, "Cannot see and click needed option", 10);
+        } else if ("Купить".equals(ticketTypeOperation)) {
+            this.waitForElementAndClick(TICKET_TYPE_OPERATION, "Cannot see and click type operation", 10);
         this.waitForElementPresent(ticketTypeOperationXpath, "Cannot see needed option", 10);
         this.waitForElementAndClick(ticketTypeOperationXpath, "Cannot see and click needed option", 10);
+        this.waitForElementAndClick(TICKET_CLASS_OBJECT, "Cannot see and click class object", 10);
+        this.waitForElementPresent(ticketClassObjectXpath, "Cannot see needed option", 10);
+        this.waitForElementAndClick(ticketClassObjectXpath, "Cannot see and click needed option", 10);
+        }
     }
     private static String getXpathByTicketType(String ticketTypeOperation) {
         return TICKET_TYPE_OPERATION_TPL.replace("{ticketTypeOperation}", ticketTypeOperation);
