@@ -69,7 +69,7 @@ public class AuthPageObject extends MainPageObject {
     }
 
     @Step("Entering Login and password")
-    public void authLogin18858(String login, String password)
+    public void authLogin130522(String login, String password)
     {
         this.waitForElementPresent(LOGIN_BUTTON, "Cannot see Login button", 10);
         this.waitForElementPresent(LOGIN_FIELD, "Cannot find login field",5);

@@ -24,7 +24,7 @@ public class FeedbackTest extends CoreTestCase {
         AuthPageObject Auth = new AuthPageObject(driver);
         MenuPageObject Menu = new MenuPageObject(driver);
 
-        Auth.authLogin18858(login, password);
+        Auth.authLogin130522(login, password);
 
         Menu.clickForMenuTab();
         Menu.clickForFeedbackSection();
@@ -45,7 +45,7 @@ public class FeedbackTest extends CoreTestCase {
         AuthPageObject Auth = new AuthPageObject(driver);
         MenuPageObject Menu = new MenuPageObject(driver);
 
-        Auth.authLogin18858(login, password);
+        Auth.authLogin130522(login, password);
 
         Menu.clickForMenuTab();
         Menu.clickForFeedbackSection();

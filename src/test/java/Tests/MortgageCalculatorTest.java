@@ -16,7 +16,7 @@ public class MortgageCalculatorTest extends CoreTestCase {
         AuthPageObject Auth = new AuthPageObject(driver);
         MenuPageObject Menu = new MenuPageObject(driver);
 
-        Auth.authLogin18858(login, password);
+        Auth.authLogin130522(login, password);
 
         String mortgageChangeObjectType = "Тип недвижимости";
 
@@ -34,7 +34,7 @@ public class MortgageCalculatorTest extends CoreTestCase {
         AuthPageObject Auth = new AuthPageObject(driver);
         MenuPageObject Menu = new MenuPageObject(driver);
 
-        Auth.authLogin18858(login, password);
+        Auth.authLogin130522(login, password);
 
         String mortgageChangeObjectType = "Тип недвижимости";
 
@@ -52,7 +52,7 @@ public class MortgageCalculatorTest extends CoreTestCase {
         AuthPageObject Auth = new AuthPageObject(driver);
         MenuPageObject Menu = new MenuPageObject(driver);
 
-        Auth.authLogin18858(login, password);
+        Auth.authLogin130522(login, password);
 
         String mortgageChangeObjectType = "Тип недвижимости";
 
@@ -70,7 +70,7 @@ public class MortgageCalculatorTest extends CoreTestCase {
         AuthPageObject Auth = new AuthPageObject(driver);
         MenuPageObject Menu = new MenuPageObject(driver);
 
-        Auth.authLogin18858(login, password);
+        Auth.authLogin130522(login, password);
 
         String mortgageChangeObjectType = "Тип недвижимости";
 

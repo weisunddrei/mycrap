@@ -25,7 +25,7 @@ public class EditObjectTest extends CoreTestCase {
         String objectStatus = "Активный";
 
 
-        Auth.authLogin18858(login, password);
+        Auth.authLogin130522(login, password);
         Object.enterCode();
         Object.clickSearchButton();
         Object.clickObjectCard();
@@ -48,7 +48,7 @@ public class EditObjectTest extends CoreTestCase {
         String objectStatus = "Приостановлен";
 
 
-        Auth.authLogin18858(login, password);
+        Auth.authLogin130522(login, password);
         Object.enterCode();
         Object.clickSearchButton();
         Object.clickObjectCard();
@@ -71,7 +71,7 @@ public class EditObjectTest extends CoreTestCase {
         String objectStatus = "Предлистинг";
 
 
-        Auth.authLogin18858(login, password);
+        Auth.authLogin130522(login, password);
         Object.enterCode();
         Object.clickSearchButton();
         Object.clickObjectCard();
