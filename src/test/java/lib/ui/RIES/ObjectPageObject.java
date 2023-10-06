@@ -1,10 +1,8 @@
 package lib.ui.RIES;
 
 import io.qameta.allure.Step;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import java.util.ArrayList;
-
 
 
 public class ObjectPageObject extends MainPageObject {
