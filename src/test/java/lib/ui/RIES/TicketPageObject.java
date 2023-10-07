@@ -8,6 +8,7 @@ public class TicketPageObject extends MainPageObject {
     protected static String
             TICKET_TAB = "xpath://*[contains(@text,'Заявки')]",
             CREATE_TICKET_BUTTON = "id:com.riesapp.debug:id/ticketsListCreateTicketButton",
+//            CREATE_TICKET_BUTTON = "id:com.riesapp.debug:id/ticketsCreateTicketButton", //    /Если пустой список заявок Оо
             CREATE_INNER_TICKET_BUTTON = "id:com.riesapp.debug:id/createTicketButton",
             TICKET_PHONE_FIELD = "xpath://*[contains(@text,'Номер телефона')]",
             TICKET_NAME_FIELD = "xpath://*[contains(@text,'Имя')]",
