@@ -33,7 +33,10 @@ public class InnerTicketTests extends CoreTestCase {
         Ticket.clickTicketTab();
         Ticket.clickCreateTicketButton();
         Ticket.fillingTicketData(phoneNumber);
-        Ticket.changeTicketDealAndObjectType("Купить","Номер","Гараж");
+        Ticket.changeTicketDealAndObjectType(
+                "Купить",
+                "Номер",
+                "Гараж");
         Ticket.clickSaveTicketButton();
 
         Ticket.clickInnerTicket();

@@ -30,7 +30,10 @@ public class CreateTicketTest extends CoreTestCase {
         Ticket.clickTicketTab();
         Ticket.clickCreateTicketButton();
         Ticket.fillingTicketData(phoneNumber);
-        Ticket.changeTicketDealAndObjectType("Продать", "Номер", "Гараж");
+        Ticket.changeTicketDealAndObjectType(
+                "Продать",
+                "Номер",
+                "Гараж");
         Ticket.clickSaveTicketButton();
         Ticket.assertIfTicketCreated();
     }
@@ -49,7 +52,10 @@ public class CreateTicketTest extends CoreTestCase {
         Ticket.clickTicketTab();
         Ticket.clickCreateTicketButton();
         Ticket.fillingTicketData(phoneNumber);
-        Ticket.changeTicketDealAndObjectType("Купить", "Номер", "Гараж");
+        Ticket.changeTicketDealAndObjectType(
+                "Купить",
+                "Номер",
+                "Гараж");
         Ticket.clickSaveTicketButton();
         Ticket.assertIfTicketCreated();
     }
